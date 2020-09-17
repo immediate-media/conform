@@ -4,7 +4,6 @@ bash
 coreutils
 docker-compose
 gh
-git
 grep
 jq
 moreutils
