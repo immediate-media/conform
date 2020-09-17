@@ -1,20 +1,32 @@
 
 #!/usr/bin/env bash
 
-node_version=10
+NODE_VERSION=10
 
-brews=(
-  autojump
-  awscli
-  bash
-  coreutils
-  docker-compose
-  gh
-  grep
-  jq
-  moreutils
-  wget
-  yarn
+BREWS=(
+    autojump
+    awscli
+    bash
+    coreutils
+    docker-compose
+    gh
+    grep
+    jq
+    moreutils
+    php
+    wget
+    yarn
+)
+
+NODE_PACKAGES=(
+    newman
+    webpack
+    webpack-cli
+    yalc
+)
+
+CASKS=(
+    visual-studio-code
 )
 
 # Let the user know if the script fails
@@ -53,10 +65,13 @@ chapter "Installing core dependencies..."
 install_xcode
 install_homebrew
 install_nvm
-install_node $node_version
+install_node
 
 chapter "Installing brews..."
-install_brews $brews
+install_brews
+
+chapter "Installing node packages..."
+install_node_packages
 
 chapter "Configuring..."
 configure_git

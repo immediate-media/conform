@@ -40,19 +40,17 @@ install_nvm() {
 }
 
 install_node() {
-    version=$1
-
     . ~/.nvm/nvm.sh
 
-    nvm install $version >/dev/null 2>&1
-    nvm use $version >/dev/null
-    nvm alias default $version >/dev/null
+    nvm install $NODE_VERSION >/dev/null 2>&1
+    nvm use $NODE_VERSION >/dev/null
+    nvm alias default $NODE_VERSION >/dev/null
     nodev=$(node -v)
     print_success "Using Node $nodev"
 }
 
 install_brews() {
-    brews=$1
+    local n_brews=${#BREWS[@]}
 
     print_install "Updating brews"
     brew update >/dev/null
@@ -60,9 +58,14 @@ install_brews() {
     print_install "Cleaning brews"
     brew cleanup &>/dev/null
 
-    for brew in ${brews[@]}; do
-        if test ! $(brew list | grep $brew); then
-            print_install "Installing $brew"
+    print_install "Installing $n_brews brews"
+
+    local list=$(brew list)
+
+    for brew in ${BREWS[@]}; do
+        if echo "$list" | grep -q "$brew"; then
+            print_success "$brew already installed"
+        else
             brew install $brew >/dev/null
             exit_code=$?
             if [ $exit_code -eq "1" ]; then
@@ -70,8 +73,31 @@ install_brews() {
             else
                 print_success "${brew} installed"
             fi
+        fi
+    done
+}
+
+install_node_packages() {
+    local n_packages=${#NODE_PACKAGES[@]}
+
+    print_install "Cleaning yarn cache"
+    yarn cache clean $NODE_PACKAGES &>/dev/null
+
+    print_install "Installing $n_packages packages"
+
+    local list=$(yarn global list)
+
+    for package in ${NODE_PACKAGES[@]}; do
+        if echo "$list" | grep -q "\"${package}@"; then
+            print_success "$package already installed"
         else
-            print_success "$brew already installed"
+            yarn global add $package &>/dev/null
+            exit_code=$?
+            if [ $exit_code -eq "1" ]; then
+                print_error "${package} install failed"
+            else
+                print_success "${package} installed"
+            fi
         fi
     done
 }
