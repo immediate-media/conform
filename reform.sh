@@ -1,23 +1,13 @@
 
 #!/usr/bin/env bash
 
-###############################################################################
-# ERROR: Let the user know if the script fails
-###############################################################################
-
+# Let the user know if the script fails
 trap 'ret=$?; test $ret -ne 0 && printf "\n\e[31mFatal error, you have not been reformed.\033[0m\n" >&2; exit $ret' EXIT
 
 set -e
 
-###############################################################################
-# VARIABLES
-###############################################################################
-
-cwd="$(cd "$(dirname "$0")" && pwd)" # Get full directory name of this script
-
-###############################################################################
-# Reform!                    http://patorjk.com/software/taag/ ( font: Script )
-###############################################################################
+# Get full directory name of this script
+cwd="$(cd "$(dirname "$0")" && pwd)"
 
 source "$cwd/bin/pretty_print.sh"
 source "$cwd/bin/checks.sh"
