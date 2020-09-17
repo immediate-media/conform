@@ -1,6 +1,22 @@
 
 #!/usr/bin/env bash
 
+node_version=10
+
+brews=(
+  autojump
+  awscli
+  bash
+  coreutils
+  docker-compose
+  gh
+  grep
+  jq
+  moreutils
+  wget
+  yarn
+)
+
 # Let the user know if the script fails
 trap 'ret=$?; test $ret -ne 0 && printf "\n\e[31mFatal error, you have not been reformed.\033[0m\n" >&2; exit $ret' EXIT
 
@@ -36,7 +52,7 @@ chapter "Installing core dependencies..."
 install_xcode
 install_homebrew
 install_nvm
-install_node
+install_node $node_version
 
 chapter "Installing brews..."
-install_brews "$cwd/swag/brews.sh"
+install_brews $brews

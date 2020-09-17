@@ -40,7 +40,7 @@ install_nvm() {
 }
 
 install_node() {
-    version=10
+    version=$1
 
     . ~/.nvm/nvm.sh
 
@@ -52,13 +52,15 @@ install_node() {
 }
 
 install_brews() {
+    brews=$1
+
     print_install "Updating brews"
     brew update >/dev/null
 
     print_install "Cleaning brews"
     brew cleanup &>/dev/null
 
-    for brew in $(<$1); do
+    for brew in ${brews[@]}; do
         if test ! $(brew list | grep $brew); then
             print_install "Installing $brew"
             brew install $brew >/dev/null
