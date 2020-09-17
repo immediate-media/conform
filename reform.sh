@@ -28,6 +28,7 @@ cwd="$(cd "$(dirname "$0")" && pwd)"
 source "$cwd/bin/pretty_print.sh"
 source "$cwd/bin/checks.sh"
 source "$cwd/bin/install.sh"
+source "$cwd/bin/configure.sh"
 
 printf "
             ___                   _   _
@@ -44,7 +45,7 @@ printf "
 ╰───────────────────────────────────────────────────╯
 "
 
-chapter "Prerequisites..."
+chapter "Performing checks..."
 check_internet_connection
 check_ssh_key
 
@@ -56,3 +57,6 @@ install_node $node_version
 
 chapter "Installing brews..."
 install_brews $brews
+
+chapter "Configuring..."
+configure_git
