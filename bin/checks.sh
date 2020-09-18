@@ -1,5 +1,6 @@
 check_internet_connection() {
-   if ! ping -c1 google.com &>/dev/null; then
+   # Note that we can't use ping as it's blocked when running through our VPN
+   if ! curl -v www.google.com &>/dev/null; then
       print_error "Please check your internet connection"
       exit 1
    else
