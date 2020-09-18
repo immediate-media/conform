@@ -57,7 +57,7 @@ check_brews() {
    local other_brews=$(brew outdated | wc -l | xargs)
 
    if [ "$other_brews" -gt 0 ]; then
-      # brews outside of the ones specifed in the script
+      # brews outside of the ones specified in the script
       print_warning "$other_brews other brews are outdated. Run 'brew upgrade' to upgrade them."
    fi
 
@@ -70,7 +70,7 @@ check_casks() {
    local other_casks=$(brew outdated --cask | wc -l | xargs)
 
    if [ "$other_casks" -gt 0 ]; then
-      # casks outside of the ones specifed in the script
+      # casks outside of the ones specified in the script
       print_warning "$other_casks other casks are outdated. Run 'brew upgrade --cask' to upgrade them."
    fi
 }
