@@ -66,12 +66,7 @@ install_brews() {
             print_success "$brew already installed"
         else
             brew install $brew
-            exit_code=$?
-            if [ $exit_code -eq "1" ]; then
-                print_error "${brew} install failed"
-            else
-                print_success "${brew} installed"
-            fi
+            print_exit_feedback "${brew} installed" "${brew} install failed"
         fi
     done
 }
@@ -86,22 +81,12 @@ install_casks() {
     for cask in ${CASKS[@]}; do
         if echo "$outdated" | grep -q "$cask"; then
             brew cask upgrade "$cask"
-            exit_code=$?
-            if [ $exit_code -eq "1" ]; then
-                print_error "${cask} upgrade failed"
-            else
-                print_success "${cask} upgraded"
-            fi
+            print_exit_feedback "${cask} upgraded" "${cask} upgrade failed"
         elif echo "$list" | grep -q "$cask"; then
             print_success "$cask already installed"
         else
             brew cask install "$cask" --appdir=/Applications
-            exit_code=$?
-            if [ $exit_code -eq "1" ]; then
-                print_error "${cask} install failed"
-            else
-                print_success "${cask} installed"
-            fi
+            print_exit_feedback "${cask} installed" "${cask} install failed"
         fi
     done
 }
@@ -120,12 +105,7 @@ install_node_packages() {
             print_success "$package already installed"
         else
             yarn global add $package &>/dev/null
-            exit_code=$?
-            if [ $exit_code -eq "1" ]; then
-                print_error "${package} install failed"
-            else
-                print_success "${package} installed"
-            fi
+            print_exit_feedback "${package} installed" "${package} install failed"
         fi
     done
 }

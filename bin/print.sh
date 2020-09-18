@@ -45,6 +45,18 @@ print_install() {
     printf "  [↓] $1\n"
 }
 
+print_exit_feedback() {
+    local exit_code=$?
+    local success_msg=$1
+    local failed_msg=$2
+
+    if [ $exit_code -eq "1" ]; then
+        print_error $failed_msg
+    else
+        print_success $success_msg
+    fi
+}
+
 ###############################################################################
 # Prompts
 ###############################################################################

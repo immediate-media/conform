@@ -43,7 +43,7 @@ set -e
 # Get full directory name of this script
 cwd="$(cd "$(dirname "$0")" && pwd)"
 
-source "$cwd/bin/pretty_print.sh"
+source "$cwd/bin/print.sh"
 source "$cwd/bin/checks.sh"
 source "$cwd/bin/install.sh"
 source "$cwd/bin/configure.sh"
