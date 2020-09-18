@@ -23,7 +23,7 @@ A tool for setting up macOS for development, inspired by [formation](https://git
   - [yalc](https://www.npmjs.com/package/yalc)
 - Installs the following via Homebrew:
   - [autojump](https://formulae.brew.sh/formula/autojump)
-  - [aws-cli](https://formulae.brew.sh/formula/aws-cli)
+  - [awscli](https://formulae.brew.sh/formula/awscli)
   - [bash](https://formulae.brew.sh/formula/bash)
   - [coreutils](https://formulae.brew.sh/formula/coreutils)
   - [docker-compose](https://formulae.brew.sh/formula/docker-compose)
