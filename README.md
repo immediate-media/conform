@@ -43,7 +43,7 @@ git clone https://github.com/immediate-media/conform ~/conform
   - [wget](https://formulae.brew.sh/formula/wget)
   - [yarn](https://formulae.brew.sh/formula/yarn)
 - Sets [Node](https://nodejs.org/en/) to the department's supported version
-- Configures git to use HTTPS for URLs
+- Configures SSH for GitHub
 
 ## Issues
 
