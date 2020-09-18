@@ -7,9 +7,7 @@ A tool for setting up macOS for development, inspired by [formation](https://git
 ```
 git clone https://github.com/immediate-media/conform
 
-cd conform
-
-./run.sh
+./conform/run.sh
 ```
 
 ## What you get
