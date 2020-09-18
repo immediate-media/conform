@@ -5,9 +5,11 @@ A tool for setting up macOS for development, inspired by [formation](https://git
 ## Usage
 
 ```
-git clone https://github.com/immediate-media/conform ~/conform
+git clone https://github.com/immediate-media/conform
 
-~/conform/run.sh
+cd conform
+
+./run.sh
 ```
 
 ## What you get
