@@ -14,6 +14,7 @@ BREWS=(
     jq
     moreutils
     php
+    python
     wget
     yarn
 )
