@@ -11,7 +11,9 @@ check_internet_connection() {
 check_github_auth() {
    local domain=$1
 
-   ssh -T git@$domain &>/dev/null
+   # Check if we're authenticated; wait for 10 seconds only in case we're not
+   # connected to the VPN
+   ssh -T -o ConnectTimeout=10 git@$domain &>/dev/null
 
    if [ $? == 1 ]; then
       return 0 # user is authenticated, but fails to open a shell with GitHub
