@@ -3,7 +3,7 @@ check_internet_connection() {
       print_error "Please check your internet connection"
       exit 1
    else
-      print_success "Internet connection"
+      print_success "Internet connection exists"
    fi
 }
 
@@ -21,9 +21,31 @@ check_ssh_key() {
             read -r -p "   ✦  Press enter to continue..."
          fi
 
-         print_success "SSH key"
+         print_success "SSH key created"
       fi
    else
-      print_success "SSH key"
+      print_success "SSH key exists"
+   fi
+}
+
+check_brews() {
+   local other_brews=$(brew outdated | wc -l | xargs)
+
+   # brews outside of the reformation specified ones
+   if [ "$other_brews" -gt 0 ]; then
+      print_warning "$other_brews other brews are outdated. Run 'brew upgrade' to upgrade them."
+   fi
+
+   if [[ ! ":$PATH:" == *":/usr/local/opt/grep/libexec/gnubin:"* ]]; then
+      print_warning "Add missing \$PATH entry for 'grep': PATH=\"/usr/local/opt/grep/libexec/gnubin:\$PATH\""
+   fi
+}
+
+check_casks() {
+   local other_casks=$(brew outdated --cask | wc -l | xargs)
+
+   # casks outside of the reformation specified ones
+   if [ "$other_casks" -gt 0 ]; then
+      print_warning "$other_casks other casks are outdated. Run 'brew upgrade --cask' to upgrade them."
    fi
 }

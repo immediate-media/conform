@@ -26,6 +26,11 @@ NODE_PACKAGES=(
 )
 
 CASKS=(
+    docker
+    firefox
+    google-chrome
+    iterm2
+    slack
     visual-studio-code
 )
 
@@ -57,7 +62,7 @@ printf "
 ╰───────────────────────────────────────────────────╯
 "
 
-chapter "Performing checks..."
+chapter "Performing initial checks..."
 check_internet_connection
 check_ssh_key
 
@@ -69,6 +74,11 @@ install_node
 
 chapter "Installing brews..."
 install_brews
+check_brews
+
+chapter "Installing casks..."
+install_casks
+check_casks
 
 chapter "Installing node packages..."
 install_node_packages

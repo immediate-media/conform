@@ -51,8 +51,9 @@ install_node() {
 
 install_brews() {
     local n_brews=${#BREWS[@]}
+    local list=$(brew list)
 
-    print_install "Updating brews"
+    print_install "Updating Homebrew"
     brew update >/dev/null
 
     print_install "Cleaning brews"
@@ -60,13 +61,11 @@ install_brews() {
 
     print_install "Installing $n_brews brews"
 
-    local list=$(brew list)
-
     for brew in ${BREWS[@]}; do
         if echo "$list" | grep -q "$brew"; then
             print_success "$brew already installed"
         else
-            brew install $brew >/dev/null
+            brew install $brew
             exit_code=$?
             if [ $exit_code -eq "1" ]; then
                 print_error "${brew} install failed"
@@ -77,15 +76,44 @@ install_brews() {
     done
 }
 
+install_casks() {
+    local n_casks=${#CASKS[@]}
+    local list=$(brew list --cask)
+    local outdated=$(brew outdated --cask)
+
+    print_install "Installing $n_casks casks"
+
+    for cask in ${CASKS[@]}; do
+        if echo "$outdated" | grep -q "$cask"; then
+            brew cask upgrade "$cask"
+            exit_code=$?
+            if [ $exit_code -eq "1" ]; then
+                print_error "${cask} upgrade failed"
+            else
+                print_success "${cask} upgraded"
+            fi
+        elif echo "$list" | grep -q "$cask"; then
+            print_success "$cask already installed"
+        else
+            brew cask install "$cask" --appdir=/Applications
+            exit_code=$?
+            if [ $exit_code -eq "1" ]; then
+                print_error "${cask} install failed"
+            else
+                print_success "${cask} installed"
+            fi
+        fi
+    done
+}
+
 install_node_packages() {
     local n_packages=${#NODE_PACKAGES[@]}
+    local list=$(yarn global list)
 
     print_install "Cleaning yarn cache"
     yarn cache clean $NODE_PACKAGES &>/dev/null
 
     print_install "Installing $n_packages packages"
-
-    local list=$(yarn global list)
 
     for package in ${NODE_PACKAGES[@]}; do
         if echo "$list" | grep -q "\"${package}@"; then

@@ -1,20 +1,55 @@
 # Reformation
 
-A tool for setting up a Mac for development, inspired by [formation](https://github.com/minamarkham/formation).
+A tool for setting up macOS for development, inspired by [formation](https://github.com/minamarkham/formation).
 
 ## What you get
 
-- Installs [Xcode](https://developer.apple.com/xcode/)
-- Installs [Homebrew](https://brew.sh/) (see [./reform.sh](./reform.sh) for list of brews)
-- Installs [NVM](https://github.com/nvm-sh/nvm) for managing node versions
-- Sets [Node](https://nodejs.org/en/) to the department's supported (as defined in [./reform.sh](./reform.sh))
-- Configures SSH for GitHub
-- Installs various Node packages globally (see [./reform.sh](./reform.sh) for the list)
+- Installs the following core dependencies:
+  - [Xcode](https://developer.apple.com/xcode/)
+  - [Homebrew](https://brew.sh/)
+  - [NVM](https://github.com/nvm-sh/nvm)
+- Installs the following applications:
+  - [Docker](https://www.docker.com/)
+  - [Firefox](https://www.mozilla.org/firefox/)
+  - [Chrome](https://www.google.com/chrome/)
+  - [iTerm2](https://iterm2.com/)
+  - [Slack](https://slack.com/)
+  - [VSCode](https://code.visualstudio.com/)
+  - [PHPStorm](https://www.jetbrains.com/phpstorm/)
+- Installs the following global Node packages:
+  - [newman](https://www.npmjs.com/package/newman)
+  - [webpack](https://www.npmjs.com/package/webpack)
+  - [webpack-cli](https://www.npmjs.com/package/webpack-cli)
+  - [yalc](https://www.npmjs.com/package/yalc)
+- Installs the following via Homebrew:
+  - [autojump](https://formulae.brew.sh/formula/autojump)
+  - [aws-cli](https://formulae.brew.sh/formula/aws-cli)
+  - [bash](https://formulae.brew.sh/formula/bash)
+  - [coreutils](https://formulae.brew.sh/formula/coreutils)
+  - [docker-compose](https://formulae.brew.sh/formula/docker-compose)
+  - [gh](https://formulae.brew.sh/formula/gh)
+  - [grep](https://formulae.brew.sh/formula/grep)
+  - [jq](https://formulae.brew.sh/formula/jq)
+  - [moreutils](https://formulae.brew.sh/formula/moreutils)
+  - [php](https://formulae.brew.sh/formula/php)
+  - [wget](https://formulae.brew.sh/formula/wget)
+  - [yarn](https://formulae.brew.sh/formula/yarn)
+- Sets [Node](https://nodejs.org/en/) to the department's supported version
+- Configures git to use HTTPS for URLs
 
 ## Issues
 
-While hopefully rare, here are some issues that you may encounter while running
-this script.
+Here are some issues that you may encounter while running this script.
+
+### Casks already installed
+
+Unfortunately, `brew cask` does not recognise applications installed outside
+of it. In the case that the script fails with an error similar to the following:
+
+> Error: It seems there is already an App at '/Applications/Docker.app'.
+
+you can either remove the application from the install list locally, or
+uninstall the application causing the failure and try again.
 
 ### Locked Homebrew process
 
@@ -24,7 +59,7 @@ with an unfinished process. If you see a message like the following:
 > Error: Another active Homebrew update process is already in progress.
 > Please wait for it to finish or terminate it to continue.
 
-You can try clearing any Homebrew locks:
+you can try clearing any Homebrew locks:
 
 ```
 rm -rf /usr/local/var/homebrew/locks
