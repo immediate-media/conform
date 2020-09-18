@@ -1,4 +1,4 @@
-# Reformation
+# Conform
 
 A tool for setting up macOS for development, inspired by [formation](https://github.com/minamarkham/formation).
 
@@ -36,6 +36,12 @@ A tool for setting up macOS for development, inspired by [formation](https://git
   - [yarn](https://formulae.brew.sh/formula/yarn)
 - Sets [Node](https://nodejs.org/en/) to the department's supported version
 - Configures git to use HTTPS for URLs
+
+## Usage
+
+```
+git clone https://github.com/immediate-media/conform ~/conform
+```
 
 ## Issues
 

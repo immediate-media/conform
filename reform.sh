@@ -35,7 +35,7 @@ CASKS=(
 )
 
 # Let the user know if the script fails
-trap 'ret=$?; test $ret -ne 0 && printf "\n\e[31mFatal error, you have not been reformed.\033[0m\n" >&2; exit $ret' EXIT
+trap 'ret=$?; test $ret -ne 0 && printf "\n\e[31mFatal error, you have not conformed.\033[0m\n" >&2; exit $ret' EXIT
 
 set -e
 
@@ -48,13 +48,15 @@ source "$cwd/bin/install.sh"
 source "$cwd/bin/configure.sh"
 
 printf "
-            ___                   _   _
-    ___ ___|  _|___ ___ _____ ___| |_|_|___ ___
-   |  _| -_|  _| . |  _|     | .'|  _| | . |   |
-   |_| |___|_| |___|_| |_|_|_|__,|_| |_|___|_|_|
-----------------------------------------------------
+
+         ___ ___  _  _ ___ ___  ___ __  __
+        / __/ _ \| \| | __/ _ \| _ \  \/  |
+       | (_| (_) | .  | _| (_) |   / |\/| |
+        \___\___/|_|\_|_| \___/|_|_\_|  |_|
+
+-----------------------------------------------------
 ╭───────────────────────────────────────────────────╮
-│  You are about to be ${bold}reformed${normal}.                    │
+│  You are about to conform.                        │
 │───────────────────────────────────────────────────│
 │  Safe to run multiple times on the same machine.  │
 │  It ${green}installs${nc}, ${cyan}upgrades${nc}, or ${yellow}skips${nc} packages based   │
