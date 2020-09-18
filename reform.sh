@@ -30,6 +30,7 @@ CASKS=(
     firefox
     google-chrome
     iterm2
+    phpstorm
     slack
     visual-studio-code
 )
