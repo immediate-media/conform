@@ -40,6 +40,7 @@ git clone https://github.com/immediate-media/conform
   - [jq](https://formulae.brew.sh/formula/jq)
   - [moreutils](https://formulae.brew.sh/formula/moreutils)
   - [php](https://formulae.brew.sh/formula/php)
+  - [python](https://formulae.brew.sh/formula/python)
   - [wget](https://formulae.brew.sh/formula/wget)
   - [yarn](https://formulae.brew.sh/formula/yarn)
 - Sets [Node](https://nodejs.org/en/) to the department's supported version
