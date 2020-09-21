@@ -7,6 +7,7 @@ BREWS=(
     autojump
     awscli
     bash
+    composer
     coreutils
     docker-compose
     gh

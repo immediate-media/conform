@@ -33,6 +33,7 @@ git clone https://github.com/immediate-media/conform
   - [autojump](https://formulae.brew.sh/formula/autojump)
   - [awscli](https://formulae.brew.sh/formula/awscli)
   - [bash](https://formulae.brew.sh/formula/bash)
+  - [composer](https://formulae.brew.sh/formula/composer)
   - [coreutils](https://formulae.brew.sh/formula/coreutils)
   - [docker-compose](https://formulae.brew.sh/formula/docker-compose)
   - [gh](https://formulae.brew.sh/formula/gh)
