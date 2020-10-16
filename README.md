@@ -74,3 +74,7 @@ you can try clearing any Homebrew locks:
 ```
 rm -rf /usr/local/var/homebrew/locks
 ```
+
+## TODO
+
+- Add as a global CLI command, then advise how to run as a cron job and keep things up-to-date?
