@@ -78,3 +78,4 @@ rm -rf /usr/local/var/homebrew/locks
 ## TODO
 
 - Add as a global CLI command, then advise how to run as a cron job and keep things up-to-date?
+- See how much more of the stuff in [Developer machine set up](https://immediateco.atlassian.net/wiki/spaces/WCPP/pages/5181018/Developer+machine+set-up) we can do
