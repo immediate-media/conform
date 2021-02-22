@@ -4,7 +4,14 @@ A tool for setting up macOS for development, inspired by [formation](https://git
 
 ## Usage
 
-Download and unzip [master](https://github.com/immediate-media/conform/archive/master.zip)
+If you don't have git (from xcode package) download and unzip [master](https://github.com/immediate-media/conform/archive/master.zip)
+If you already have xcode and git:
+
+```sh
+git clone https://github.com/immediate-media/conform
+```
+
+Then:
 
 ```sh
 ./conform/run.sh
