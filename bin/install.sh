@@ -80,12 +80,12 @@ install_casks() {
 
     for cask in ${CASKS[@]}; do
         if echo "$outdated" | grep -q "$cask"; then
-            brew cask upgrade "$cask"
+            brew upgrade --cask "$cask"
             print_exit_feedback "${cask} upgraded" "${cask} upgrade failed"
         elif echo "$list" | grep -q "$cask"; then
             print_success "$cask already installed"
         else
-            brew cask install "$cask" --appdir=/Applications
+            brew install --cask "$cask" --appdir=/Applications
             print_exit_feedback "${cask} installed" "${cask} install failed"
         fi
     done
