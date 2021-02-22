@@ -4,9 +4,9 @@ A tool for setting up macOS for development, inspired by [formation](https://git
 
 ## Usage
 
-```
-git clone https://github.com/immediate-media/conform
+Download and unzip [master](https://github.com/immediate-media/conform/archive/master.zip)
 
+```sh
 ./conform/run.sh
 ```
 
@@ -71,7 +71,7 @@ with an unfinished process. If you see a message like the following:
 
 you can try clearing any Homebrew locks:
 
-```
+```sh
 rm -rf /usr/local/var/homebrew/locks
 ```
 
